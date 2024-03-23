@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const bodyParser = require('body-parser');
+const schedule = require('node-schedule');
 require('dotenv').config();
 // Your Telegram Bot token
 
@@ -9,6 +10,7 @@ console.log(token);
 // Create a new instance of the TelegramBot
 const bot = new TelegramBot(token, { polling: false });
 
+const chatGroupId = -1001909144979;
 // Create an Express app
 const app = express();
 
@@ -94,6 +96,15 @@ bot.onText(/\/libros(.*)/, (msg) => {
   bot.sendMessage(chatId, `Libros: ${eventoLink}`);
 });
 
+function sendMessage() {
+  //chatGroupId
+  const message = 'Buenas🖐️ No te olvides de inscribirte para el evento de mañana: https://bit.ly/usinaemprendedora ';
+  
+  bot.sendMessage(chatGroupId, message)
+      .then(() => console.log('Message sent successfully'))
+      .catch((err) => console.error('Error:', err));
+}
+
 // Start the Express server
 const port = process.env.PORT || 4040;
 app.listen(port, () => {
@@ -103,5 +114,5 @@ app.listen(port, () => {
 // Set the webhook
 const webhookUrl = process.env.URL// Replace with your webhook URL
 bot.setWebHook(`${webhookUrl}/webhook`);
-
+schedule.scheduleJob({hour: 19, minute: 15, dayOfWeek: 6}, sendMessage);
 //

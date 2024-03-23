@@ -86,13 +86,13 @@ bot.onText(/\/instagram(.*)/, (msg) => {
     bot.sendMessage(chatId, `Instagram : ${eventoLink}`);
 });
 
-/* bot.onText(/\/libros(.*)/, (msg) => {
+bot.onText(/\/libros(.*)/, (msg) => {
   const chatId = msg.chat.id;
 
   // Send a link to the event
   const eventoLink = "https://docs.google.com/spreadsheets/d/1g8CZnH1Pr9rIWttTXvTD5LfgSswsK5DQ9fkml1waFSo/edit?usp=sharing";
   bot.sendMessage(chatId, `Libros: ${eventoLink}`);
-}); */
+});
 
 // Start the Express server
 const port = process.env.PORT || 4040;

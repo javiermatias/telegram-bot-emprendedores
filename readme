@@ -1,0 +1,42 @@
+# Bot de Telegram para Club Emprendedores de Córdoba
+
+Este es un bot de Telegram desarrollado para el Club Emprendedores de Córdoba. Proporciona funcionalidades específicas para los miembros del club y facilita la interacción con los servicios y recursos disponibles.
+
+## Funcionalidades
+
+- **Bienvenida:** Saluda a los nuevos miembros y proporciona información básica sobre el club.
+- **Notificaciones:** Envía notificaciones sobre eventos, talleres y actualizaciones importantes a los miembros.
+- **Recursos:** Proporciona acceso rápido a recursos útiles para emprendedores, como enlaces a documentos, herramientas y sitios web relevantes.
+- **Encuestas y Feedback:** Recopila opiniones y feedback de los miembros a través de encuestas interactivas y formularios de retroalimentación.
+- **Soporte:** Ofrece soporte y asistencia a los miembros en tiempo real para consultas y preguntas frecuentes.
+
+## Requisitos
+
+- Node.js
+- npm (Node Package Manager)
+- Cuenta de Telegram
+- Token de API de Telegram
+
+## Instalación
+
+1. Clona este repositorio o descarga los archivos del bot.
+   
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+2. npm install
+3. Crea un archivo .env en el directorio raíz del proyecto y añade tu token de API de Telegram.
+4. TELEGRAM_API_TOKEN=TU_TOKEN_DE_API_DE_TELEGRAM
+
+
+## Uso
+Ejecuta el bot utilizando el siguiente comando:
+5. npm start
+
+##  Contribución
+Las contribuciones son bienvenidas. Si deseas mejorar este bot de Telegram, sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama con tus cambios: git checkout -b feature/MejoraGenial.
+3. Realiza tus cambios y commitea: git commit -am 'Añade una mejora genial'.
+4. Empuja tus cambios a la rama: git push origin feature/MejoraGenial.
+5. Abre un pull request.

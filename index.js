@@ -55,7 +55,7 @@ bot.on('new_chat_members', async (msg) => {
   });
   bot.onText(/\/estudio(.*)/, (msg) => {
     const chatId = msg.chat.id;
-    console.log("hola");
+    console.log("contenido estudio");
     // Send a link to the event
     const eventoLink = "https://drive.google.com/drive/folders/1r-qZZNHglCx1bN5gnqpKpyb2sRqSFm0S";
     bot.sendMessage(chatId, `Contenido: ${eventoLink}`);

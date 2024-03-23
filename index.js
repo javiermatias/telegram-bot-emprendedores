@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 // Your Telegram Bot token
 
-const token = process.env.Token;
+const token = process.env.TOKEN_BOT;
+console.log(token);
 // Create a new instance of the TelegramBot
 const bot = new TelegramBot(token, { polling: false });
 
@@ -21,6 +22,16 @@ app.post('/webhook', (req, res) => {
     res.sendStatus(200);
   }catch(error){
     console.error(`Error sending greeting message to ${member}: ${error.message}`);
+  }
+ 
+});
+
+app.get('/webhook', (req, res) => {
+  try{
+    //bot.processUpdate(req.body);
+    res.send("hello word")
+  }catch(error){
+    console.error(`Error sending greeting message`);
   }
  
 });
@@ -75,13 +86,13 @@ bot.onText(/\/instagram(.*)/, (msg) => {
     bot.sendMessage(chatId, `Instagram : ${eventoLink}`);
 });
 
-bot.onText(/\/libros(.*)/, (msg) => {
+/* bot.onText(/\/libros(.*)/, (msg) => {
   const chatId = msg.chat.id;
 
   // Send a link to the event
   const eventoLink = "https://docs.google.com/spreadsheets/d/1g8CZnH1Pr9rIWttTXvTD5LfgSswsK5DQ9fkml1waFSo/edit?usp=sharing";
   bot.sendMessage(chatId, `Libros: ${eventoLink}`);
-});
+}); */
 
 // Start the Express server
 const port = process.env.PORT || 4040;
@@ -90,5 +101,7 @@ app.listen(port, () => {
 });
 
 // Set the webhook
-const webhookUrl = 'https://8325-186-13-122-114.ngrok-free.app'; // Replace with your webhook URL
+const webhookUrl = process.env.URL// Replace with your webhook URL
 bot.setWebHook(`${webhookUrl}/webhook`);
+
+//

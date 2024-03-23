@@ -45,9 +45,7 @@ bot.on('new_chat_members', async (msg) => {
         // Send the greeting message
         const chatId = msg.chat.id;
         member = msg.new_chat_member?.first_name; // Get the new user's first name
-        const greetingMessage = `Hola, ${member}! 🎉\n
-        ¡Bienvenido al grupo! Nos encantaría conocerte un poco más. 
-        ¿Qué te trae por aquí? presentate asi te podemos conocer mejor.😊`; // Customize your greeting message
+        const greetingMessage = `Hola, ${member}! 🎉 ¡Bienvenido al grupo! Nos encantaría conocerte un poco más.¿Qué te trae por aquí? presentate asi te podemos conocer mejor.😊`; // Customize your greeting message
         await bot.sendMessage(chatId, greetingMessage);
         //console.log(`Greeting message sent to ${member}`);
     } catch (error) {
@@ -98,7 +96,7 @@ bot.onText(/\/libros(.*)/, (msg) => {
 
 function sendMessage() {
   //chatGroupId
-  const message = 'Buenas🖐️ No te olvides de inscribirte para el evento de mañana: https://bit.ly/usinaemprendedora ';
+  const message = 'Buenas🖐️ No te olvides de inscribirte para el evento de emprendimiento que se realizara mañana: https://bit.ly/usinaemprendedora ';
   
   bot.sendMessage(chatGroupId, message)
       .then(() => console.log('Message sent successfully'))
@@ -114,5 +112,5 @@ app.listen(port, () => {
 // Set the webhook
 const webhookUrl = process.env.URL// Replace with your webhook URL
 bot.setWebHook(`${webhookUrl}/webhook`);
-schedule.scheduleJob({hour: 19, minute: 15, dayOfWeek: 6}, sendMessage);
+schedule.scheduleJob({hour: 19, minute: 15, dayOfWeek: 1}, sendMessage);
 //

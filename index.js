@@ -83,7 +83,7 @@ bot.onText(/\/instagram(.*)/, (msg) => {
 
     // Send a link to the event
     const eventoLink = "https://www.instagram.com/clubdeemprendedorescba/";
-    bot.sendMessage(chatId, `Instagram : ${eventoLink}`);
+    bot.sendMessage(chatId, `Instagram: ${eventoLink}`);
 });
 
 bot.onText(/\/libros(.*)/, (msg) => {

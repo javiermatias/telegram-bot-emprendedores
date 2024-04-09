@@ -94,6 +94,14 @@ bot.onText(/\/libros(.*)/, (msg) => {
   bot.sendMessage(chatId, `Libros: ${eventoLink}`);
 });
 
+bot.onText(/\/emprendimientos(.*)/, (msg) => {
+  const chatId = msg.chat.id;
+
+  // Send a link to the event
+  const eventoLink = "https://bit.ly/club-emprendimientos";
+  bot.sendMessage(chatId, `Emprendimientos: ${eventoLink}`);
+});
+
 function sendMessage() {
   //chatGroupId
   const message = 'Buenas🖐️ No te olvides de inscribirte para el evento de emprendimiento que se realizara mañana: https://bit.ly/usinaemprendedora ';

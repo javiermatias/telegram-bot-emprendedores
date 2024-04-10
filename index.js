@@ -94,7 +94,7 @@ bot.onText(/\/libros(.*)/, (msg) => {
   bot.sendMessage(chatId, `Libros: ${eventoLink}`);
 });
 
-bot.onText(/\/emprendimientos(.*)/, (msg) => {
+bot.onText(/\/emprendimiento(.*)/, (msg) => {
   const chatId = msg.chat.id;
 
   // Send a link to the event

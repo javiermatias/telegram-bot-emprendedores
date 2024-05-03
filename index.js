@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const schedule = require('node-schedule');
 require('dotenv').config();
 // Your Telegram Bot token
-
+// Global variable to store the last read ID
+let lastReadId = 0;
 const token = process.env.TOKEN_BOT;
 console.log(token);
 // Create a new instance of the TelegramBot
@@ -85,6 +86,15 @@ bot.onText(/\/instagram(.*)/, (msg) => {
     const eventoLink = "https://www.instagram.com/clubdeemprendedorescba/";
     bot.sendMessage(chatId, `Instagram: ${eventoLink}`);
 });
+
+bot.onText(/\/material(.*)/, (msg) => {
+  const chatId = msg.chat.id;
+
+  // Send a link to the event
+  const eventoLink = "https://bit.ly/material-emprendedor";
+  bot.sendMessage(chatId, `Instagram: ${eventoLink}`);
+});
+
 
 bot.onText(/\/libros(.*)/, (msg) => {
   const chatId = msg.chat.id;

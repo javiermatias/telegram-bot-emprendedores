@@ -11,6 +11,9 @@ console.log(token);
 // Create a new instance of the TelegramBot
 const bot = new TelegramBot(token, { polling: false });
 
+// Define the cron expression for the first Thursday of every month
+const cronExpression = '0 15 19 * * 4#1'; // At 7:15 PM on the first Thursday of every month
+
 const chatGroupId = -1001909144979;
 // Create an Express app
 const app = express();
@@ -121,6 +124,15 @@ function sendMessage() {
       .catch((err) => console.error('Error:', err));
 }
 
+function FirstThursdayEveryMonth() {
+  //chatGroupId
+  const message = 'Buenas Gente🖐️ Mañana haremos un encuentro informal en el espacio de Coworking focuslabcoworking, les pedimos a los que vayan que confirmen asi armamos el lugar.Gracias😊';
+  
+  bot.sendMessage(chatGroupId, message)
+      .then(() => console.log('Message sent successfully'))
+      .catch((err) => console.error('Error:', err));
+}
+
 // Start the Express server
 const port = process.env.PORT || 4040;
 app.listen(port, () => {
@@ -131,4 +143,5 @@ app.listen(port, () => {
 const webhookUrl = process.env.URL// Replace with your webhook URL
 bot.setWebHook(`${webhookUrl}/webhook`);
 schedule.scheduleJob({hour: 19, minute: 15, dayOfWeek: 1}, sendMessage);
+schedule.scheduleJob(cronExpression, FirstThursdayEveryMonth);
 //
